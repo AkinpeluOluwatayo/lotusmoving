@@ -157,7 +157,7 @@ function Hero() {
   return (
     <section className="relative isolate min-h-[92vh] overflow-hidden">
       <img
-        src={heroImg}
+        src={heroImg.src || heroImg}
         alt="LOTUS movers loading a wrapped sofa into a green truck for a Nigerian family"
         width={1600}
         height={1200}
@@ -266,7 +266,7 @@ function Services() {
             <article className="hover-lift group h-full overflow-hidden rounded-3xl border border-border bg-card shadow-soft">
               <div className="relative h-44 overflow-hidden">
                 <img
-                  src={s.image}
+                  src={s.image?.src || s.image}
                   alt={s.title}
                   loading="lazy"
                   width={1200}
@@ -330,7 +330,7 @@ function WhyUs() {
         <Reveal delay={150}>
           <div className="relative">
             <img
-              src={packingImg}
+              src={packingImg.src || packingImg}
               alt="Professional packing of a fragile item into a labelled box"
               loading="lazy"
               width={1200}
@@ -516,7 +516,7 @@ function Corporate() {
             </div>
             <div className="relative min-h-[320px]">
               <img
-                src={officeImg}
+                src={officeImg.src || officeImg}
                 alt="Office relocation crew moving labelled crates through a modern office"
                 loading="lazy"
                 width={1200}

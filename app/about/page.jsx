@@ -54,7 +54,7 @@ function AboutPage() {
           </Reveal>
           <Reveal delay={140}>
             <img
-              src={heroImg}
+              src={heroImg.src || heroImg}
               alt="LOTUS crew carefully loading furniture for a family relocation"
               loading="lazy"
               width={1600}

@@ -12,7 +12,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-3">
             <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full bg-white">
               <img
-                src={logo.url}
+                src={logo?.url || logo?.src || logo}
                 alt="LOTUS Moving Service logo"
                 width={48}
                 height={48}

@@ -47,7 +47,7 @@ export function SiteHeader() {
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label={`${SITE.name} home`}>
           <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-white ring-1 ring-border">
             <img
-              src={logo.url}
+              src={logo?.url || logo?.src || logo}
               alt="LOTUS Moving Service logo"
               width={44}
               height={44}
