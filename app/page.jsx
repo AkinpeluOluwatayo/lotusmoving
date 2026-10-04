@@ -326,7 +326,7 @@ function WhyUs() {
             />
             <div className="glass float-slow absolute -bottom-6 -left-2 rounded-2xl p-5 shadow-lift sm:left-6">
               <p className="font-display text-3xl font-bold text-primary">
-                <Counter href={98} suffix="%" />
+                100%
               </p>
               <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
                 Damage-free moves
@@ -341,18 +341,17 @@ function WhyUs() {
 
 function Stats() {
   const stats = [
-    { v: 500, s: "+", l: "Moves completed" },
-    { v: 50, s: "+", l: "Cities served" },
-    { v: 3, s: "+", l: "Trained movers" },
+    { v: 100, s: "+", l: "Moves completed" },
+    { v: 3, s: "+", l: "Cities served" },
   ];
   return (
     <section className="bg-forest-gradient py-20 lg:py-24">
-      <div className="container-lotus grid gap-10 sm:grid-cols-3">
+      <div className="container-lotus grid gap-10 sm:grid-cols-2">
         {stats.map((s, i) => (
           <Reveal key={s.l} delay={i * 90}>
             <div className="text-center">
               <p className="font-display text-5xl font-bold text-primary-foreground">
-                <Counter href={s.v} suffix={s.s} />
+                <Counter to={s.v} suffix={s.s} />
               </p>
               <p className="mt-2 text-sm uppercase tracking-[0.16em] text-primary-foreground/65">
                 {s.l}
@@ -571,13 +570,13 @@ function FollowUs() {
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
           <Reveal>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {[heroImg, packingImg, officeImg, storageImg, heroImg, packingImg].map((src, i) => (
+              {[heroImg, packingImg, officeImg, storageImg, ambassadorImg, packingImg].map((src, i) => (
                 <div
                   key={i}
                   className="hover-lift group relative aspect-square overflow-hidden rounded-2xl"
                 >
                   <img
-                    src={src}
+                    src={src?.src || src}
                     alt="LOTUS moving day highlight"
                     loading="lazy"
                     width={600}

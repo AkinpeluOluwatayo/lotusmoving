@@ -47,16 +47,18 @@ export function Reveal({
 
 export function Counter({
   to,
+  href,
   suffix = "",
   duration = 1600,
 }) {
+  const target = typeof to === "number" ? to : typeof href === "number" ? href : 0;
   const ref = useRef(null);
   const [value, setValue] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === "undefined") {
-      setValue(to);
+      setValue(target);
       return;
     }
     const io = new IntersectionObserver(
@@ -67,7 +69,7 @@ export function Counter({
         const tick = (now) => {
           const p = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - p, 3);
-          setValue(Math.round(to * eased));
+          setValue(Math.round(target * eased));
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -76,7 +78,7 @@ export function Counter({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [to, duration]);
+  }, [target, duration]);
 
   return (
     <span ref={ref}>

@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { SERVICES, SITE } from "@/lib/site";
+import { SERVICES, SITE, waLink } from "@/lib/site";
 import heroImg from "@/assets/hero-move.jpg";
 import officeImg from "@/assets/service-office.jpg";
 import packingImg from "@/assets/service-packing.jpg";
 import storageImg from "@/assets/service-storage.jpg";
+import ambassadorImg from "@/assets/ambassador.png";
 
-
-  
-
-const IMAGES = [heroImg, officeImg, packingImg, storageImg, officeImg];
+const IMAGES = [ambassadorImg, officeImg, packingImg, storageImg, officeImg];
 
 const DETAILS = [
   ["Pre-move survey", "Protective wrapping", "Disassembly & reassembly", "Same-day setup"],
@@ -45,7 +43,7 @@ function ServicesPage() {
               >
                 <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                   <img
-                    src={IMAGES[i]}
+                    src={IMAGES[i]?.src || IMAGES[i]}
                     alt={s.title}
                     loading="lazy"
                     width={1200}
@@ -64,12 +62,14 @@ function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/book"
+                  <a
+                    href={waLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:bg-accent"
                   >
                     Book {s.title} <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </a>
                 </div>
               </article>
             </Reveal>
