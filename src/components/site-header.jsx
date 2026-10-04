@@ -3,8 +3,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/lotus-logo.jpg.asset.json";
-import { SITE } from "@/lib/site";
+import truckLogo from "@/assets/truck-logo.png";
+import { SITE, waLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { InstagramIcon, TiktokIcon } from "@/components/social-icons";
 
@@ -12,9 +12,7 @@ const NAV = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/how-it-works", label: "How It Works" },
-  { to: "/drivers", label: "Drivers" },
   { to: "/about", label: "About" },
-  { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -45,13 +43,13 @@ export function SiteHeader() {
     >
       <div className="container-lotus grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 lg:py-4">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label={`${SITE.name} home`}>
-          <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-white ring-1 ring-border">
+          <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-white ring-1 ring-border p-1">
             <img
-              src={logo?.url || logo?.src || logo}
+              src={truckLogo.src || truckLogo}
               alt="LOTUS Moving Service logo"
               width={44}
               height={44}
-              className="h-full w-full scale-[1.04] object-contain"
+              className="h-full w-full object-contain"
             />
           </span>
 
@@ -111,12 +109,14 @@ export function SiteHeader() {
             />
           </div>
 
-          <Link
-            href="/book"
+          <a
+            href={waLink()}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-1 hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent sm:inline-flex"
           >
             Book Now
-          </Link>
+          </a>
 
           <button
             type="button"

@@ -4,6 +4,10 @@ import { SiteFooter } from "@/components/site-footer";
 import { FloatingActions } from "@/components/floating-actions";
 import { Providers } from "./providers";
 
+export const viewport = {
+    themeColor: "#0284c7",
+};
+
 export const metadata = {
     title: "Lotus Moving | Professional Moving & Relocation Services",
     description:
@@ -13,7 +17,6 @@ export const metadata = {
     authors: [{ name: "Lotus Moving" }],
     creator: "Lotus Moving",
     publisher: "Lotus Moving",
-    themeColor: "#0D6B4F",
     robots: { index: true, follow: true },
     openGraph: {
         siteName: "Lotus Moving",
@@ -24,7 +27,7 @@ export const metadata = {
         description:
             "Lotus Moving provides professional moving and relocation services including residential moving, commercial moving, office relocation, furniture moving, and packing and moving solutions.",
         images: [
-            "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ce3cecc-7bf2-4b35-9799-c980da7b9117/id-preview-35a8338e--819b5ab1-9f8b-4fcb-b1e1-759df6e70a3f.lovable.app-1785356708576.png",
+            "/icon.png",
         ],
     },
     twitter: {
@@ -33,7 +36,7 @@ export const metadata = {
         description:
             "Lotus Moving provides professional moving and relocation services including residential moving, commercial moving, office relocation, furniture moving, and packing and moving solutions.",
         images: [
-            "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ce3cecc-7bf2-4b35-9799-c980da7b9117/id-preview-35a8338e--819b5ab1-9f8b-4fcb-b1e1-759df6e70a3f.lovable.app-1785356708576.png",
+            "/icon.png",
         ],
     },
     icons: { icon: "/favicon.ico", apple: "/favicon.ico" },

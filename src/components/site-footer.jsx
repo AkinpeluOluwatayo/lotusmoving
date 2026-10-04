@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/lotus-logo.jpg.asset.json";
+import truckLogo from "@/assets/truck-logo.png";
 import { SERVICES, SITE, waLink } from "@/lib/site";
 import { InstagramIcon, TiktokIcon, WhatsappIcon } from "@/components/social-icons";
 
@@ -10,14 +10,14 @@ export function SiteFooter() {
       <div className="container-lotus grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full bg-white">
+            <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full bg-white p-1">
               <img
-                src={logo?.url || logo?.src || logo}
+                src={truckLogo.src || truckLogo}
                 alt="LOTUS Moving Service logo"
                 width={48}
                 height={48}
                 loading="lazy"
-                className="h-full w-full scale-[1.04] object-contain"
+                className="h-full w-full object-contain"
               />
             </span>
 
@@ -96,24 +96,14 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="transition-colors hover:text-gold">
-                Moving Journal
-              </Link>
-            </li>
-            <li>
               <Link href="/contact" className="transition-colors hover:text-gold">
                 Contact
               </Link>
             </li>
             <li>
-              <Link href="/drivers" className="transition-colors hover:text-gold">
-                Drive With Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/book" className="transition-colors hover:text-gold">
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                 Book a Move
-              </Link>
+              </a>
             </li>
           </ul>
 

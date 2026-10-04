@@ -22,20 +22,18 @@ import {
 import { Counter, Reveal } from "@/components/reveal";
 import { InstagramIcon, TiktokIcon } from "@/components/social-icons";
 import { SITE, waLink } from "@/lib/site";
-import heroImg from "@/assets/hero-move.jpg";
+import ambassadorImg from "@/assets/ambassador.png";
 import officeImg from "@/assets/service-office.jpg";
 import packingImg from "@/assets/service-packing.jpg";
 import storageImg from "@/assets/service-storage.jpg";
-
-
-  
+import heroImg from "@/assets/hero-move.jpg";
 
 const SERVICE_CARDS = [
   {
     icon: HomeIcon,
     title: "Home Relocation",
     desc: "Studios to duplexes, moved by trained crews with padded transit and a dedicated move captain.",
-    image: heroImg,
+    image: ambassadorImg,
   },
   {
     icon: Building2,
@@ -67,7 +65,7 @@ const STEPS = [
   { n: "1", t: "Tell us what you need moved", d: "Service, pickup, destination, size and date." },
   { n: "2", t: "Provide your contact information", d: "Name, phone and WhatsApp number." },
   { n: "3", t: "Schedule your move", d: "Property details, access, packing and storage needs." },
-  { n: "4", t: "Continue to WhatsApp", d: "A move consultant confirms everything personally." },
+  { n: "4", t: "Chat directly on WhatsApp", d: "A move consultant confirms everything personally." },
 ];
 
 const TESTIMONIALS = [
@@ -110,25 +108,7 @@ const FAQS = [
   },
   {
     q: "How do I get a quotation?",
-    a: "Complete the booking form, then continue to WhatsApp. A consultant reviews your details and sends a personalised quotation — no automated pricing.",
-  },
-];
-
-const POSTS = [
-  {
-    title: "The 7-day Lagos moving checklist",
-    tag: "Moving tips",
-    excerpt: "A calm, day-by-day plan that keeps your relocation on schedule from week to keys.",
-  },
-  {
-    title: "How to pack fragile items like a pro",
-    tag: "Packing guides",
-    excerpt: "The wrapping order, box weight rules and labelling system our crews use daily.",
-  },
-  {
-    title: "Moving an office without downtime",
-    tag: "Corporate",
-    excerpt: "What to sequence, who to assign and how to be live again by Monday morning.",
+    a: "Click any 'Book Now' button to connect directly with a consultant on WhatsApp for an immediate quotation.",
   },
 ];
 
@@ -143,11 +123,8 @@ function HomePage() {
       <Testimonials />
       <Partners />
       <Corporate />
-      <DriversCta />
-
       <FollowUs />
       <Faqs />
-      <BlogPreview />
       <FinalCta />
     </>
   );
@@ -156,16 +133,20 @@ function HomePage() {
 function Hero() {
   return (
     <section className="relative isolate min-h-[92vh] overflow-hidden">
-      <img
-        src={heroImg.src || heroImg}
-        alt="LOTUS movers loading a wrapped sofa into a green truck for a Nigerian family"
-        width={1600}
-        height={1200}
-        className="absolute inset-0 h-full w-full scale-105 object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.24_0.05_166/0.92)] via-[oklch(0.24_0.05_166/0.7)] to-[oklch(0.24_0.05_166/0.25)]" />
+      <div className="absolute inset-0 grid lg:grid-cols-2">
+        <div className="relative z-10 bg-gradient-to-r from-[oklch(0.25_0.12_235/0.95)] via-[oklch(0.25_0.12_235/0.85)] to-[oklch(0.25_0.12_235/0.4)]" />
+        <div className="relative hidden lg:block">
+          <img
+            src={ambassadorImg.src || ambassadorImg}
+            alt="LOTUS Brand Ambassador"
+            width={1200}
+            height={1600}
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
+        </div>
+      </div>
 
-      <div className="container-lotus relative flex min-h-[92vh] flex-col justify-center py-32">
+      <div className="container-lotus relative z-20 flex min-h-[92vh] flex-col justify-center py-32">
         <Reveal className="max-w-2xl">
           <span className="glass-dark inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-primary-foreground">
             <Sparkles className="h-3.5 w-3.5 text-gold" />
@@ -181,19 +162,23 @@ function Hero() {
 
 
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/book"
+            <a
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-primary-foreground px-7 py-4 text-sm font-semibold text-forest shadow-lift transition-all duration-300 hover:-translate-y-1"
             >
               Book Now
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="/book"
+            </a>
+            <a
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:text-gold"
             >
               Get Instant Quote
-            </Link>
+            </a>
           </div>
         </Reveal>
 
@@ -206,7 +191,7 @@ function Hero() {
                 ))}
               </div>
               <span className="text-sm font-semibold">4.9/5</span>
-              <span className="text-sm text-primary-foreground/70">from 600+ moves</span>
+              <span className="text-sm text-primary-foreground/70">from 500+ moves</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/80">
               <ShieldCheck className="h-4 w-4 text-gold" /> Vetted, uniformed crews
@@ -283,13 +268,15 @@ function Services() {
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                <Link
-                  href="/book"
+                <a
+                  href={waLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
                 >
                   Book this service
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
               </div>
             </article>
           </Reveal>
@@ -354,17 +341,16 @@ function WhyUs() {
 
 function Stats() {
   const stats = [
-    { v: 600, s: "+", l: "Moves completed" },
-    { v: 12, s: "+", l: "Cities served" },
-    { v: 45, s: "", l: "Trained movers" },
-    { v: 98, s: "%", l: "Would recommend" },
+    { v: 500, s: "+", l: "Moves completed" },
+    { v: 50, s: "+", l: "Cities served" },
+    { v: 3, s: "+", l: "Trained movers" },
   ];
   return (
     <section className="bg-forest-gradient py-20 lg:py-24">
-      <div className="container-lotus grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-lotus grid gap-10 sm:grid-cols-3">
         {stats.map((s, i) => (
           <Reveal key={s.l} delay={i * 90}>
-            <div className="text-center lg:text-left">
+            <div className="text-center">
               <p className="font-display text-5xl font-bold text-primary-foreground">
                 <Counter href={s.v} suffix={s.s} />
               </p>
@@ -668,35 +654,6 @@ function Faqs() {
   );
 }
 
-function BlogPreview() {
-  return (
-    <section className="bg-card py-24 lg:py-32">
-      <div className="container-lotus">
-        <SectionHead eyebrow="Journal" title="Moving knowledge, worth reading." />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {POSTS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 110}>
-              <article className="hover-lift h-full rounded-3xl border border-border bg-background p-8 shadow-soft">
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                  {p.tag}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-semibold leading-snug">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.excerpt}</p>
-                <Link
-                  href="/blog"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent"
-                >
-                  Read journal <ArrowRight className="h-4 w-4" />
-                </Link>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FinalCta() {
   return (
     <section className="container-lotus py-24 lg:py-28">
@@ -710,12 +667,14 @@ function FinalCta() {
             LOTUS consultant.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/book"
+            <a
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:bg-accent"
             >
               Book Now <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-4 text-sm font-semibold transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary"

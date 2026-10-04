@@ -39,12 +39,6 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
-      "page": "/blog",
-      "regex": "^/blog(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/blog(?:/)?$"
-    },
-    {
       "page": "/book",
       "regex": "^/book(?:/)?$",
       "routeKeys": {},
@@ -55,12 +49,6 @@
       "regex": "^/contact(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/contact(?:/)?$"
-    },
-    {
-      "page": "/drivers",
-      "regex": "^/drivers(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/drivers(?:/)?$"
     },
     {
       "page": "/how-it-works",

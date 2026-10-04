@@ -16,7 +16,7 @@ export const SITE = {
   formspree: "https://formspree.io/f/xvzeepjj",
 };
 
-export function waLink(message) {
+export function waLink(message = "Hello Lotus i am interested in making a move") {
   return `https://wa.me/${SITE.whatsappIntl}?text=${encodeURIComponent(message)}`;
 }
 
