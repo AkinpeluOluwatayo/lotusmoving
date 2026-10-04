@@ -57,6 +57,12 @@
       "namedRegex": "^/how\\-it\\-works(?:/)?$"
     },
     {
+      "page": "/policy",
+      "regex": "^/policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/policy(?:/)?$"
+    },
+    {
       "page": "/services",
       "regex": "^/services(?:/)?$",
       "routeKeys": {},

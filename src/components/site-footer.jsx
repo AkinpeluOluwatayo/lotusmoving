@@ -101,9 +101,9 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
-                Book a Move
-              </a>
+              <Link href="/policy" className="transition-colors hover:text-gold">
+                Master Governance & Policy
+              </Link>
             </li>
           </ul>
 
